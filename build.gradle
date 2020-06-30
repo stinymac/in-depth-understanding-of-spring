@@ -1,0 +1,14 @@
+plugins {
+    id "java"
+}
+group 'org.mac'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    compile "org.springframework:spring-core:${springVersion}"
+    compile "org.springframework:spring-beans:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-aop:${springVersion}"
+    compile "org.springframework:spring-expression:${springVersion}"
+    compile "org.springframework:spring-jcl:${springVersion}"
+}

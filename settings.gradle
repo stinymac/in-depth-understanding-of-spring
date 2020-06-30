@@ -1,0 +1,23 @@
+pluginManagement {
+	repositories {
+		def ALI_YUN_GRADLE_PLUGIN_URL = 'https://maven.aliyun.com/repository/gradle-plugin/'
+		all { ArtifactRepository repo ->
+			if(repo instanceof MavenArtifactRepository){
+				def url = repo.url.toString()
+				if (url.startsWith('https://plugins.gradle.org/m2/')) {
+					project.logger.lifecycle "Repository ${repo.url} replaced by $ALI_YUN_GRADLE_PLUGIN_URL."
+					remove repo
+				}
+			}
+		}
+		maven { url ALI_YUN_GRADLE_PLUGIN_URL }
+		mavenCentral()
+		gradlePluginPortal()
+	}
+}
+
+rootProject.name="in-depth-understanding-of-spring"
+
+include 'spring-framework:features-overview'
+findProject(':spring-framework:features-overview')?.name = 'features-overview'
+
