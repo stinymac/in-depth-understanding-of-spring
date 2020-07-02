@@ -19,5 +19,7 @@ pluginManagement {
 rootProject.name="in-depth-understanding-of-spring"
 
 include 'spring-framework:features-overview'
-findProject(':spring-framework:features-overview')?.name = 'features-overview'
+include 'spring-framework:ioc-container'
+include 'spring-framework:spring-bean'
+findProject(':spring-framework:spring-bean')?.name = 'spring-bean'
 
