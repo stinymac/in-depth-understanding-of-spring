@@ -9,4 +9,17 @@
     <!-- 通过导入复用 dependency-lookup-context.xml -->
     <import resource="dependency-lookup-context.xml"/>
 
+    <!--
+    <bean id="userRepository" class="org.mac.sf.ioc.overview.repository.UserRepository">
+        <property name="users">
+            <util:list>
+                <ref bean="administrator" />
+                <ref bean="user" />
+            </util:list>
+        </property>
+    </bean>
+    -->
+
+    <bean id="userRepository" class="org.mac.sf.ioc.overview.repository.UserRepository" autowire="byType"/>
+
 </beans>

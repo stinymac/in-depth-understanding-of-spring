@@ -1,4 +1,4 @@
-package org.mac.sf.ioc.overview.dependency;
+package org.mac.sf.ioc.overview;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
