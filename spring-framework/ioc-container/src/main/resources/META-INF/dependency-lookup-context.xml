@@ -8,12 +8,12 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="user" class="org.mac.sf.ioc.overview.bean.User">
+    <bean id="user" class="org.mac.sf.ioc.overview.User">
         <property name="id" value="1"/>
         <property name="name" value="小码哥"/>
     </bean>
 
-    <bean id="administrator" class="org.mac.sf.ioc.overview.bean.Administrator" parent="user"
+    <bean id="administrator" class="org.mac.sf.ioc.overview.Administrator" parent="user"
           primary="true">
         <property name="address" value="成都"/>
     </bean>

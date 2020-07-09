@@ -15,7 +15,7 @@
 package org.mac.sf.ioc.overview.dependency.lookup;
 
 import org.mac.sf.ioc.overview.SpecialUser;
-import org.mac.sf.ioc.overview.bean.User;
+import org.mac.sf.ioc.overview.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ListableBeanFactory;
 import org.springframework.beans.factory.ObjectFactory;

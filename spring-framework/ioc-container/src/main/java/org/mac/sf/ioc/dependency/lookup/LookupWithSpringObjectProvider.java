@@ -12,37 +12,42 @@
  *
  */
 
-package org.mac.sf.ioc.overview.container;
+package org.mac.sf.ioc.dependency.lookup;
 
-import org.mac.sf.ioc.overview.User;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 /**
  * @auther mac
- * @date 2020-07-06 21:40
+ * @date 2020-07-09 21:41
  */
-@Configuration
-public class SpringAnnotationConfigApplicationContext {
+public class LookupWithSpringObjectProvider {
 
     public static void main(String[] args) {
 
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
-        // 将当前类 SpringAnnotationConfigApplicationContext 作为配置类（Configuration Class）
-        applicationContext.register(SpringAnnotationConfigApplicationContext.class);
+        // 将当前类 LookupWithSpringObjectProvider 作为配置类（Configuration Class）
+        applicationContext.register(LookupWithSpringObjectProvider.class);
         // 启动应用上下文
         applicationContext.refresh();
 
-        System.out.println(applicationContext.getBean(User.class));
+        String s = lookupByObjectProvider(applicationContext,String.class);
+
+        System.out.println("s:"+s);
 
         applicationContext.close();
     }
 
+    public static <T> T lookupByObjectProvider(ApplicationContext applicationContext,Class<T> classType) {
+        ObjectProvider<T> objectProvider = applicationContext.getBeanProvider(classType);
+        return objectProvider.getObject();
+    }
+
     @Bean
-    public User user() {
-        User user = new User(1L,"小码哥^^");
-        return user;
+    public String helloWorld(){
+        return "Hello World!";
     }
 }

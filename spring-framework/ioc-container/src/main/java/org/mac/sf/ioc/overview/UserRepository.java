@@ -12,9 +12,8 @@
  *
  */
 
-package org.mac.sf.ioc.overview.repository;
+package org.mac.sf.ioc.overview;
 
-import org.mac.sf.ioc.overview.bean.User;
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.context.ApplicationContext;

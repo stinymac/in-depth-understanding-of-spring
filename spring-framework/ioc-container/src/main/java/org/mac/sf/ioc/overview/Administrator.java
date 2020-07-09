@@ -12,9 +12,7 @@
  *
  */
 
-package org.mac.sf.ioc.overview.bean;
-
-import org.mac.sf.ioc.overview.SpecialUser;
+package org.mac.sf.ioc.overview;
 
 /**
  * @auther mac

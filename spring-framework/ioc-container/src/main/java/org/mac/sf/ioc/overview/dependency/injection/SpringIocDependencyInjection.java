@@ -14,9 +14,7 @@
 
 package org.mac.sf.ioc.overview.dependency.injection;
 
-import org.mac.sf.ioc.overview.bean.User;
-import org.mac.sf.ioc.overview.repository.UserRepository;
-import org.springframework.beans.factory.BeanFactory;
+import org.mac.sf.ioc.overview.UserRepository;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

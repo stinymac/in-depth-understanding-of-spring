@@ -12,7 +12,7 @@
  *
  */
 
-package org.mac.sf.ioc.java.beans;
+package org.mac.sf.ioc.overview.java.beans;
 
 /**
  * @auther mac

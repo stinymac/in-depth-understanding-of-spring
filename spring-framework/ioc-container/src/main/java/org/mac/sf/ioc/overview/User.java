@@ -14,16 +14,34 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.mac.sf.ioc.overview.bean;
+package org.mac.sf.ioc.overview;
 
 /**
- * 公司类
+ * 用户类
  *
  * @since
  */
-public class Company {
+public class User {
 
-    String name;
+    private Long id;
+
+    private String name;
+
+    public User() {
+    }
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -35,8 +53,9 @@ public class Company {
 
     @Override
     public String toString() {
-        return "Company{" +
-                "name='" + name + '\'' +
+        return "User{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
