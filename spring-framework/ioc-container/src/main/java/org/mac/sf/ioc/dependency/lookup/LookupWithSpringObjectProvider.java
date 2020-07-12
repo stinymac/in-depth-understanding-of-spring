@@ -14,10 +14,15 @@
 
 package org.mac.sf.ioc.dependency.lookup;
 
+import org.mac.sf.ioc.dependency.Person;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Primary;
+
+import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 /**
  * @auther mac
@@ -35,10 +40,27 @@ public class LookupWithSpringObjectProvider {
         applicationContext.refresh();
 
         String s = lookupByObjectProvider(applicationContext,String.class);
-
         System.out.println("s:"+s);
 
+        Person person = lookupIfAvailable(applicationContext, Person.class);
+        System.out.println("person:"+person);
+
+        Stream<String> stream = lookupByStreamOperation(applicationContext,String.class);
+        stream.forEach(System.out::println);
+
         applicationContext.close();
+    }
+
+    private static  <T> Stream<T> lookupByStreamOperation(AnnotationConfigApplicationContext applicationContext, Class<T> classType) {
+        ObjectProvider<T> objectProvider = applicationContext.getBeanProvider(classType);
+        return objectProvider.stream();
+    }
+
+    private static  <T> T  lookupIfAvailable(AnnotationConfigApplicationContext applicationContext,Class<T> classType) {
+
+        ObjectProvider<T> objectProvider = applicationContext.getBeanProvider(classType);
+
+        return objectProvider.getIfAvailable(() -> (T) Person.createPerson());
     }
 
     public static <T> T lookupByObjectProvider(ApplicationContext applicationContext,Class<T> classType) {
@@ -47,7 +69,13 @@ public class LookupWithSpringObjectProvider {
     }
 
     @Bean
+    @Primary
     public String helloWorld(){
         return "Hello World!";
+    }
+
+    @Bean
+    public String helloPolly(){
+        return "Hello Polly!";
     }
 }

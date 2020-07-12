@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+
+    <bean id="person" class="org.mac.sf.ioc.dependency.Person">
+        <property name="name" value="Spike-autowired"/>
+        <property name="age" value="30"/>
+    </bean>
+
+    <!--<bean id="personHolder" class="org.mac.sf.ioc.dependency.PersonHolder" autowire="byType"/>-->
+
+    <bean id="personHolder" class="org.mac.sf.ioc.dependency.PersonHolder" autowire="constructor"/>
+</beans>
